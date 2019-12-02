@@ -1,0 +1,75 @@
+@import './sass/variables';
+@import './sass/mixins';
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    font-weight: 400;
+
+    @include respond(big-desktop) {
+        font-size: 75%;
+    }
+
+    @include respond(tab-land) {
+        font-size: 56.25%;
+    }
+
+    @include respond(tab-port) {
+        font-size: 50%;
+    }
+}
+
+
+body {
+  box-sizing: border-box;
+  font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  background-color: $color-background;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+        monospace;
+}
+
+::selection {
+    background-color: rgba($color-white, .8);
+    color: black;
+}
+
+.section-title {
+    text-align: center;
+    font-size: $title-font-size;
+    letter-spacing: .6rem;
+    font-weight: 300;
+    width: 100%;
+    background-color: $color-dark;
+    color: $color-white;
+    margin: 1rem 0;
+    padding: 2rem;
+    text-transform: uppercase;
+}
+
+.content {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.soon {
+    color: $color-dark;
+    font-size: 2.5rem;
+    background-color: $color-white;
+    text-align: center;
+    font-weight: 600;
+}
