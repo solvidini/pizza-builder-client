@@ -16,12 +16,12 @@ const Pizza = props => {
 				const multipleIngredients = [];
 
 				for (let x = 0; x < 5; x++) {
-					positionY = 420 - x * 100;
-					positionX = Math.floor(Math.random() * 350) + 20;
+					positionY = 400 - x * 100;
+					positionX = Math.floor(Math.random() * 440);
 					rotate = Math.floor(Math.random() * 360);
 					multipleIngredients.push(
 						<PizzaIngredient
-							key={igKey + i + x}
+							key={igKey + i + x + 'v'}
 							type={igKey}
 							ingredientStyle={{
 								transform: `scale(.25) translate(-${positionX}%, -${positionY}%) rotate(${rotate}deg)`,
@@ -30,12 +30,12 @@ const Pizza = props => {
 					);
 				}
 				for (let x = 0; x < 5; x++) {
-					positionX = 420 - x * 100;
-					positionY = Math.floor(Math.random() * 350) + 20;
+					positionX = 400 - x * 100;
+					positionY = Math.floor(Math.random() * 440);
 					rotate = Math.floor(Math.random() * 360);
 					multipleIngredients.push(
 						<PizzaIngredient
-							key={igKey + i + x}
+							key={igKey + i + x + 'h'}
 							type={igKey}
 							ingredientStyle={{
 								transform: `scale(.25) translate(-${positionX}%, -${positionY}%) rotate(${rotate}deg)`,

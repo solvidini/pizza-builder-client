@@ -7,6 +7,12 @@ import './PizzaIngredient.scss';
 import Tomato from '../../../assets/ingredients/tomato.svg';
 import Pepperoni from '../../../assets/ingredients/pepperoni.svg';
 import Jalapeno from '../../../assets/ingredients/jalapeno.svg';
+import Cheese from '../../../assets/ingredients/cheese.svg';
+import Cucumber from '../../../assets/ingredients/cucumber.svg';
+import Mushroom from '../../../assets/ingredients/mushroom.svg';
+import Pineapple from '../../../assets/ingredients/pineapple.svg';
+import Olive from '../../../assets/ingredients/olive.svg';
+import Paprika from '../../../assets/ingredients/paprika.svg';
 
 const PizzaIngredient = props => {
 	let ingredient = null;
@@ -30,6 +36,48 @@ const PizzaIngredient = props => {
 			ingredient = (
 				<div className="ingredient" style={props.ingredientStyle}>
 					<img src={Jalapeno} alt="ingredient"/>
+				</div>
+			);
+			break;
+		case 'cheese':
+			ingredient = (
+				<div className="ingredient" style={props.ingredientStyle}>
+					<img src={Cheese} alt="ingredient"/>
+				</div>
+			);
+			break;
+		case 'cucumber':
+			ingredient = (
+				<div className="ingredient" style={props.ingredientStyle}>
+					<img src={Cucumber} alt="ingredient"/>
+				</div>
+			);
+			break;
+		case 'mushroom':
+			ingredient = (
+				<div className="ingredient" style={props.ingredientStyle}>
+					<img src={Mushroom} alt="ingredient"/>
+				</div>
+			);
+			break;
+		case 'pineapple':
+			ingredient = (
+				<div className="ingredient" style={props.ingredientStyle}>
+					<img src={Pineapple} alt="ingredient"/>
+				</div>
+			);
+			break;
+		case 'olive':
+			ingredient = (
+				<div className="ingredient" style={props.ingredientStyle}>
+					<img src={Olive} alt="ingredient"/>
+				</div>
+			);
+			break;
+		case 'paprika':
+			ingredient = (
+				<div className="ingredient" style={props.ingredientStyle}>
+					<img src={Paprika} alt="ingredient"/>
 				</div>
 			);
 			break;
