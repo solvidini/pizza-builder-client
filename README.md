@@ -16,3 +16,7 @@ Main technologies I used to create this application:
 ## Live
 
 currently in progress...
+
+## Link to server-side part
+
+[Back-end](https://github.com/ssazero/pizza-builder-service/)
