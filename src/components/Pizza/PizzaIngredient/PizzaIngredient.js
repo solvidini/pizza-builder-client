@@ -13,6 +13,7 @@ import Mushroom from '../../../assets/ingredients/mushroom.svg';
 import Pineapple from '../../../assets/ingredients/pineapple.svg';
 import Olive from '../../../assets/ingredients/olive.svg';
 import Paprika from '../../../assets/ingredients/paprika.svg';
+import Oregano from '../../../assets/ingredients/oregano.svg';
 
 const PizzaIngredient = props => {
 	let ingredient = null;
@@ -78,6 +79,13 @@ const PizzaIngredient = props => {
 			ingredient = (
 				<div className="ingredient" style={props.ingredientStyle}>
 					<img src={Paprika} alt="ingredient"/>
+				</div>
+			);
+			break;
+		case 'oregano':
+			ingredient = (
+				<div className="ingredient" style={props.ingredientStyle}>
+					<img src={Oregano} alt="ingredient"/>
 				</div>
 			);
 			break;

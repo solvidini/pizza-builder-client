@@ -12,6 +12,7 @@
 html {
     font-size: 62.5%;
     font-weight: 400;
+    letter-spacing: .1rem;
 
     @include respond(big-desktop) {
         font-size: 75%;
@@ -48,28 +49,46 @@ code {
     color: black;
 }
 
-.section-title {
-    text-align: center;
-    font-size: $title-font-size;
-    letter-spacing: .6rem;
-    font-weight: 300;
-    width: 100%;
-    background-color: $color-dark;
-    color: $color-white;
-    margin: 1rem 0;
-    padding: 2rem;
-    text-transform: uppercase;
-}
-
 .content {
     max-width: 120rem;
     margin: 0 auto;
 }
 
-.soon {
-    color: $color-dark;
-    font-size: 2.5rem;
-    background-color: $color-white;
-    text-align: center;
+.btn {
+    padding: 1rem;
+    border-radius: .5rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
     font-weight: 600;
+    color: $color-white;
+    border: none;
+    margin: .3rem;
+    cursor: pointer;
+    
+    &:focus {
+        outline: none;
+        border: 1px solid $color-white;
+
+    }
+
+    &--less {
+        background-color: $color-danger;
+    }
+    &--more {
+        background-color: $color-success;
+    }
+    &--order {
+        background-color: $color-success;
+        font-size: 1.6rem;
+        min-width: 20rem;
+    }
+    &--reset {
+        background-color: $color-danger;
+        font-size: 1.6rem;
+    }
+
+    &:disabled {
+        background-color: gray;
+        cursor: not-allowed;
+    }
 }

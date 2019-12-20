@@ -51,7 +51,7 @@ const Pizza = props => {
 		}, []);
 
 	if (transformedIngredients.length === 0) {
-		transformedIngredients = <p>Please start adding ingredients!</p>;
+		transformedIngredients = <p className="no-ingredients">Please start adding ingredients!</p>;
 	}
 	return <div className="pizza">{transformedIngredients}</div>;
 };

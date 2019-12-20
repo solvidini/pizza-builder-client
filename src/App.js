@@ -2,7 +2,7 @@ import React from 'react';
 import './App.scss';
 import axios from 'axios';
 
-import PizzaBuilder from './pages/PizzaBuilder/PizzaBuilder';
+import PizzaBuilder from './containers/PizzaBuilder/PizzaBuilder';
 
 function App() {
 	// axios
