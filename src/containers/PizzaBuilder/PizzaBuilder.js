@@ -5,6 +5,7 @@ import Pizza from '../../components/Pizza/Pizza';
 import PizzaOverview from '../../components/Pizza/PizzaOverview/PizzaOverview';
 import BuildControls from '../../components/Pizza/BuildControls/BuildControls';
 import * as actions from '../../store/actions/index';
+import Spinner from './../../components/UI/Spinner/Spinner';
 
 const PizzaBuilder = props => {
 	const [purchasing, setPurchasing] = useState(false);
@@ -33,19 +34,19 @@ const PizzaBuilder = props => {
 		disabledMoreInfo[key] = disabledMoreInfo[key] >= 4;
 	}
 
-	let pizza = props.error ? <p>Ingredients can't be loaded!</p> : 'loading...';
+	let pizza = props.error ? <p>Ingredients can't be loaded!</p> : <Spinner />;
 	if (props.ingredients) {
 		pizza = (
 			<PizzaOverview
 				price={props.price}
-				//   ordered={purchaseHandler}
-				//   isAuth={isAuthenticated}
+				ordered={props.purchaseHandler}
+				isAuth={props.isAuthenticated}
 				purchasable={updatePurchaseState(props.ingredients)}
 				reset={props.onResetIngredients}
 			>
 				<BuildControls
-					ingredientAdded={props.onIngredientAdded} //props
-					ingredientRemoved={props.onIngredientRemoved} //props
+					ingredientAdded={props.onIngredientAdded}
+					ingredientRemoved={props.onIngredientRemoved}
 					disabledLess={disabledLessInfo}
 					disabledMore={disabledMoreInfo}
 				/>
@@ -62,7 +63,7 @@ const mapStateToProps = state => {
 		ingredients: state.pizzaBuilder.ingredients,
 		price: state.pizzaBuilder.totalPrice,
 		error: state.pizzaBuilder.error,
-		// isAuthenticated: state.auth.token !== null
+		isAuthenticated: state.auth.token !== null
 	};
 };
 
@@ -70,7 +71,7 @@ const mapDispatchToProps = dispatch => {
 	return {
 		onIngredientAdded: ingredientName => dispatch(actions.addIngredient(ingredientName)),
 		onIngredientRemoved: ingredientName => dispatch(actions.removeIngredient(ingredientName)), //dispatch({ type: actionTypes.REMOVE_INGREDIENT, ingredientName: ingredientName })
-		onResetIngredients: () => dispatch(actions.resetIngredients()), 
+		onResetIngredients: () => dispatch(actions.resetIngredients()),
 		// onInitPurchase: () => dispatch(actions.purchaseInit()),
 		// onSetAuthRedirectPath: path => dispatch(actions.setAuthRedirectPath(path))
 	};

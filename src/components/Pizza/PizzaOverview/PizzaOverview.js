@@ -1,5 +1,6 @@
 import React from 'react';
 import './PizzaOverview.scss';
+import Button from './../../UI/Button/Button';
 
 const PizzaOverview = props => (
 	<div className="pizza-overview">
@@ -8,12 +9,16 @@ const PizzaOverview = props => (
 		</p>
 		<div className="pizza-controls-container">{props.children}</div>
 		<div className="center">
-			<button className="btn btn--reset" disabled={!props.purchasable} onClick={props.reset}>
+			<Button type="Reset" disabled={!props.purchasable} onClick={props.reset}>
 				RESET
-			</button>
-			<button className="btn btn--order" disabled={!props.purchasable} onClick={props.ordered}>
+			</Button>
+			<Button
+				type={!props.purchasable ? 'Order' : 'OrderActive'}
+				disabled={!props.purchasable}
+				onClick={props.ordered}
+			>
 				ORDER NOW
-			</button>
+			</Button>
 		</div>
 	</div>
 );

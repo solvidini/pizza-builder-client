@@ -1,23 +1,24 @@
 import React from 'react';
 import './BuildControl.scss';
+import Button from './../../../UI/Button/Button';
 
 const BuildControl = props => (
 	<div className="build-control">
 		<div className="build-control__label">{props.label}</div>
-		<button
-			className="btn btn--less"
-			onClick={props.removed}
+		<Button
+			type="Danger"
+			clicked={props.removed}
 			disabled={props.disabledLess}
 		>
 			Less
-		</button>
-		<button
-			className="btn btn--more"
-			onClick={props.added}
+		</Button>
+		<Button
+			type="Success"
+			clicked={props.added}
 			disabled={props.disabledMore}
 		>
 			More
-		</button>
+		</Button>
 	</div>
 );
 

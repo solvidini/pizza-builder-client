@@ -1,5 +1,6 @@
 @import './sass/variables';
 @import './sass/mixins';
+@import './sass/animations';
 
 *,
 *::before,
@@ -29,14 +30,14 @@ html {
 
 
 body {
-  box-sizing: border-box;
-  font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-  sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  
-  background-color: $color-background;
+    box-sizing: border-box;
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    background-color: $color-background;
 }
 
 code {
@@ -52,43 +53,4 @@ code {
 .content {
     max-width: 120rem;
     margin: 0 auto;
-}
-
-.btn {
-    padding: 1rem;
-    border-radius: .5rem;
-    text-transform: uppercase;
-    letter-spacing: .1rem;
-    font-weight: 600;
-    color: $color-white;
-    border: none;
-    margin: .3rem;
-    cursor: pointer;
-    
-    &:focus {
-        outline: none;
-        border: 1px solid $color-white;
-
-    }
-
-    &--less {
-        background-color: $color-danger;
-    }
-    &--more {
-        background-color: $color-success;
-    }
-    &--order {
-        background-color: $color-success;
-        font-size: 1.6rem;
-        min-width: 20rem;
-    }
-    &--reset {
-        background-color: $color-danger;
-        font-size: 1.6rem;
-    }
-
-    &:disabled {
-        background-color: gray;
-        cursor: not-allowed;
-    }
 }

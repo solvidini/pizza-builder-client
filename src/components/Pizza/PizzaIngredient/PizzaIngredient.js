@@ -22,70 +22,70 @@ const PizzaIngredient = props => {
 		case 'tomato':
 			ingredient = (
 				<div className="ingredient" style={props.ingredientStyle}>
-					<img src={Tomato} alt="ingredient"/>
+					<img src={Tomato} alt="ingredient" draggable="false" />
 				</div>
 			);
 			break;
 		case 'pepperoni':
 			ingredient = (
 				<div className="ingredient" style={props.ingredientStyle}>
-					<img src={Pepperoni} alt="ingredient"/>
+					<img src={Pepperoni} alt="ingredient" draggable="false" />
 				</div>
 			);
 			break;
 		case 'jalapeno':
 			ingredient = (
 				<div className="ingredient" style={props.ingredientStyle}>
-					<img src={Jalapeno} alt="ingredient"/>
+					<img src={Jalapeno} alt="ingredient" draggable="false" />
 				</div>
 			);
 			break;
 		case 'cheese':
 			ingredient = (
 				<div className="ingredient" style={props.ingredientStyle}>
-					<img src={Cheese} alt="ingredient"/>
+					<img src={Cheese} alt="ingredient" draggable="false" />
 				</div>
 			);
 			break;
 		case 'cucumber':
 			ingredient = (
 				<div className="ingredient" style={props.ingredientStyle}>
-					<img src={Cucumber} alt="ingredient"/>
+					<img src={Cucumber} alt="ingredient" draggable="false" />
 				</div>
 			);
 			break;
 		case 'mushroom':
 			ingredient = (
 				<div className="ingredient" style={props.ingredientStyle}>
-					<img src={Mushroom} alt="ingredient"/>
+					<img src={Mushroom} alt="ingredient" draggable="false" />
 				</div>
 			);
 			break;
 		case 'pineapple':
 			ingredient = (
 				<div className="ingredient" style={props.ingredientStyle}>
-					<img src={Pineapple} alt="ingredient"/>
+					<img src={Pineapple} alt="ingredient" draggable="false" />
 				</div>
 			);
 			break;
 		case 'olive':
 			ingredient = (
 				<div className="ingredient" style={props.ingredientStyle}>
-					<img src={Olive} alt="ingredient"/>
+					<img src={Olive} alt="ingredient" draggable="false" />
 				</div>
 			);
 			break;
 		case 'paprika':
 			ingredient = (
 				<div className="ingredient" style={props.ingredientStyle}>
-					<img src={Paprika} alt="ingredient"/>
+					<img src={Paprika} alt="ingredient" draggable="false" />
 				</div>
 			);
 			break;
 		case 'oregano':
 			ingredient = (
 				<div className="ingredient" style={props.ingredientStyle}>
-					<img src={Oregano} alt="ingredient"/>
+					<img src={Oregano} alt="ingredient" draggable="false" />
 				</div>
 			);
 			break;
