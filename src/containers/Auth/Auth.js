@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
@@ -29,7 +29,7 @@ const Auth = props => {
 			elementType: 'input',
 			elementConfig: {
 				type: 'password',
-				placeholder: 'Password',
+				placeholder: 'Your password',
 			},
 			value: '',
 			validation: {
@@ -41,8 +41,6 @@ const Auth = props => {
 		},
 	});
 	const [isSignup, setIsSignup] = useState(false);
-
-	const { buildingPizza } = props;
 
 	const inputChangedHandler = (event, controlName) => {
 		const updatedControls = updateObject(authForm, {
@@ -68,7 +66,7 @@ const Auth = props => {
 
 	const submitHandler = event => {
 		event.preventDefault();
-		props.onAuth(authForm.password.value, authForm.password.value, isSignup);
+		props.onAuth(authForm.username.value, authForm.password.value, isSignup);
 	};
 
 	const switchAuthModeHandler = () => {

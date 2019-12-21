@@ -1,7 +1,6 @@
 .Input {
     width: 100%;
     padding: 10px;
-    box-sizing: border-box;
 }
 
 .Label {
@@ -15,10 +14,11 @@
     border: 1px solid #ccc;
     background-color: white;
     font: inherit;
-    padding: 6px 10px;
+    padding: .8rem 1rem;
+    border-radius: .5rem;
     display: block;
     width: 100%;
-    box-sizing: border-box;
+    font-size: 1.6rem;
 
     &:focus {
         outline: none;
@@ -34,8 +34,8 @@
 .ValidationError {
     color: rgb(240, 50, 50);
     margin: 4px 0;
-
-    &::first-letter {
+    font-size: 1.3rem;
+    &:first-letter {
         text-transform: uppercase;
     }
 }
