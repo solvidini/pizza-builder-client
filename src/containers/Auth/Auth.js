@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
@@ -42,6 +42,14 @@ const Auth = props => {
 	});
 	const [isSignup, setIsSignup] = useState(false);
 
+	const { buildingPizza, authRedirectPath, onSetAuthRedirectPath } = props;
+
+	useEffect(() => {
+	  if (!buildingPizza && authRedirectPath !== "/") {
+		onSetAuthRedirectPath();
+	  }
+	}, [buildingPizza, authRedirectPath, onSetAuthRedirectPath]);
+
 	const inputChangedHandler = (event, controlName) => {
 		const updatedControls = updateObject(authForm, {
 			[controlName]: updateObject(authForm[controlName], {
@@ -78,7 +86,7 @@ const Auth = props => {
 		formElementsArray.push({
 			id: key,
 			setup: authForm[key],
-			name: key
+			name: key,
 		});
 	}
 
@@ -115,7 +123,7 @@ const Auth = props => {
 
 	let authRedirect = null;
 	if (props.isAuthenticated) {
-		authRedirect = <Redirect to="/" />;
+		authRedirect = <Redirect to={props.authRedirectPath} />;
 	}
 
 	let canSubmit = false;
@@ -128,7 +136,9 @@ const Auth = props => {
 			{errorMessage}
 			<form onSubmit={submitHandler}>
 				{form}
-				<Button type="Success" disabled={!canSubmit}>SUBMIT</Button>
+				<Button type="Success" disabled={!canSubmit}>
+					SUBMIT
+				</Button>
 			</form>
 			<Button type="Text" clicked={switchAuthModeHandler}>
 				{!isSignup ? "Don't have an account? REGISTER" : 'Have an account? SIGN IN'}
@@ -143,12 +153,14 @@ const mapStateToProps = state => {
 		error: state.auth.error,
 		isAuthenticated: state.auth.token !== null,
 		buildingPizza: state.pizzaBuilder.building,
+		authRedirectPath: state.auth.authRedirectPath,
 	};
 };
 
 const mapDispatchToProps = dispatch => {
 	return {
 		onAuth: (username, password, isSignup) => dispatch(actions.auth(username, password, isSignup)),
+		onSetAuthRedirectPath: () => dispatch(actions.setAuthRedirectPath('/')),
 	};
 };
 

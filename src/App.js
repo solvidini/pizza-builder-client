@@ -7,10 +7,18 @@ import Layout from './containers/Layout/Layout';
 import PizzaBuilder from './containers/PizzaBuilder/PizzaBuilder';
 import Logout from './containers/Auth/Logout/Logout';
 import * as actions from './store/actions/index';
-import Spinner from './components/UI/Spinner/Spinner'
+import Spinner from './components/UI/Spinner/Spinner';
 
 const Auth = React.lazy(() => {
 	return import('./containers/Auth/Auth');
+});
+
+const Orders = React.lazy(() => {
+	return import('./containers/Orders/Orders');
+});
+
+const Checkout = React.lazy(() => {
+	return import('./containers/Checkout/Checkout');
 });
 
 function App(props) {
@@ -27,16 +35,16 @@ function App(props) {
 
 	if (props.isAuthenticated) {
 		routes = (
-		  <Switch>
-			{/* <Route path="/checkout" render={props => <Checkout {...props} />} /> */}
-			{/* <Route path="/orders" render={props => <Orders {...props} />} /> */}
-			<Route path="/logout" component={Logout} />
-			<Route path="/auth" render={props => <Auth {...props} />} />
-			<Route path="/" exact component={PizzaBuilder} />
-			<Redirect to="/" />
-		  </Switch>
+			<Switch>
+				<Route path="/checkout" render={props => <Checkout {...props} />} />
+				<Route path="/orders" render={props => <Orders {...props} />} />
+				<Route path="/logout" component={Logout} />
+				<Route path="/auth" render={props => <Auth {...props} />} />
+				<Route path="/" exact component={PizzaBuilder} />
+				<Redirect to="/" />
+			</Switch>
 		);
-	  }
+	}
 
 	return (
 		<Layout>

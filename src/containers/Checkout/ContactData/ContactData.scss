@@ -1,0 +1,21 @@
+@import './../../../sass/variables';
+@import './../../../sass/mixins';
+
+
+.contact-data {
+    margin: 2rem auto;
+    width: 50rem;
+    text-align: center;
+    font-size: $default-font-size;
+    border: 1px solid $color-black;
+    box-shadow: 0 2px 3px $color-black;
+    border-radius: 1rem;
+    padding: 1rem;
+
+    background-color: $color-alternative;
+    color: $color-white;
+    
+    @include respond(phone) {
+        width: 80%;
+    }
+}

@@ -56,4 +56,4 @@ const Pizza = props => {
 	return <div className="pizza">{transformedIngredients}</div>;
 };
 
-export default Pizza;
+export default React.memo(Pizza);

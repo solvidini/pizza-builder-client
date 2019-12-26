@@ -10,7 +10,7 @@ const Input = props => {
 
 	if (props.invalid && props.shouldValidate && props.touched) {
 		inputClasses.push(classes.Invalid);
-		if (props.shouldValidate.minLength) {
+		if (props.shouldValidate.minLength && !props.shouldValidate.maxLength) {
 			validationError = (
 				<p className={classes.ValidationError}>
 					{props.name} should have at least {props.shouldValidate.minLength} characters.{' '}

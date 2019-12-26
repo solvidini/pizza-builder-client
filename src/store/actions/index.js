@@ -7,5 +7,11 @@ export {
 export {
     authCheckState,
     auth,
-    logout
+    logout,
+    setAuthRedirectPath
 } from './auth';
+export {
+    purchasePizza,
+    purchaseInit,
+    fetchOrders
+} from './order';

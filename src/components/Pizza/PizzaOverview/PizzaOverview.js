@@ -7,15 +7,15 @@ const PizzaOverview = props => (
 		<p className="pizza-overview__price">
 			Current Price: <strong>{props.price.toFixed(2)} $</strong>
 		</p>
-		<div className="pizza-controls-container">{props.children}</div>
+		<div className="pizza-overview__container">{props.children}</div>
 		<div className="center">
-			<Button type="Reset" disabled={!props.purchasable} onClick={props.reset}>
+			<Button type="Reset" disabled={!props.purchasable} clicked={props.reset}>
 				RESET
 			</Button>
 			<Button
 				type={!props.purchasable ? 'Order' : 'OrderActive'}
 				disabled={!props.purchasable}
-				onClick={props.ordered}
+				clicked={props.ordered}
 			>
 				ORDER NOW
 			</Button>

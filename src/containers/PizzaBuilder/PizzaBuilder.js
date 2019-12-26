@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import Pizza from '../../components/Pizza/Pizza';
 import PizzaOverview from '../../components/Pizza/PizzaOverview/PizzaOverview';
 import BuildControls from '../../components/Pizza/BuildControls/BuildControls';
+import Modal from '../../components/UI/Modal/Modal';
+import OrderSummary from '../../components/Pizza/OrderSummary/OrderSummary';
 import * as actions from '../../store/actions/index';
 import Spinner from './../../components/UI/Spinner/Spinner';
 
@@ -21,6 +23,24 @@ const PizzaBuilder = props => {
 		return sum > 0;
 	};
 
+	const purchaseHandler = () => {
+		if (props.isAuthenticated) {
+			setPurchasing(true);
+		} else {
+			props.onSetAuthRedirectPath('/checkout');
+			props.history.push('/auth');
+		}
+	};
+
+	const purchaseCancelHandler = () => {
+		setPurchasing(false);
+	};
+
+	const purchaseContinueHandler = () => {
+		props.onInitPurchase();
+		props.history.push('/checkout');
+	};
+
 	const disabledLessInfo = {
 		...props.ingredients,
 	};
@@ -34,12 +54,13 @@ const PizzaBuilder = props => {
 		disabledMoreInfo[key] = disabledMoreInfo[key] >= 4;
 	}
 
+	let orderSummary = null;
 	let pizza = props.error ? <p>Ingredients can't be loaded!</p> : <Spinner />;
 	if (props.ingredients) {
 		pizza = (
 			<PizzaOverview
 				price={props.price}
-				ordered={props.purchaseHandler}
+				ordered={purchaseHandler}
 				isAuth={props.isAuthenticated}
 				purchasable={updatePurchaseState(props.ingredients)}
 				reset={props.onResetIngredients}
@@ -53,9 +74,24 @@ const PizzaBuilder = props => {
 				<Pizza ingredients={props.ingredients} />
 			</PizzaOverview>
 		);
+		orderSummary = (
+			<OrderSummary
+				ingredients={props.ingredients}
+				price={props.price}
+				purchaseCancelled={purchaseCancelHandler}
+				purchaseContinued={purchaseContinueHandler}
+			/>
+		);
 	}
 
-	return <Fragment>{pizza}</Fragment>;
+	return (
+		<Fragment>
+			<Modal show={purchasing} modalClosed={purchaseCancelHandler}>
+				{orderSummary}
+			</Modal>
+			{pizza}
+		</Fragment>
+	);
 };
 
 const mapStateToProps = state => {
@@ -63,7 +99,7 @@ const mapStateToProps = state => {
 		ingredients: state.pizzaBuilder.ingredients,
 		price: state.pizzaBuilder.totalPrice,
 		error: state.pizzaBuilder.error,
-		isAuthenticated: state.auth.token !== null
+		isAuthenticated: state.auth.token !== null,
 	};
 };
 
@@ -72,8 +108,8 @@ const mapDispatchToProps = dispatch => {
 		onIngredientAdded: ingredientName => dispatch(actions.addIngredient(ingredientName)),
 		onIngredientRemoved: ingredientName => dispatch(actions.removeIngredient(ingredientName)), //dispatch({ type: actionTypes.REMOVE_INGREDIENT, ingredientName: ingredientName })
 		onResetIngredients: () => dispatch(actions.resetIngredients()),
-		// onInitPurchase: () => dispatch(actions.purchaseInit()),
-		// onSetAuthRedirectPath: path => dispatch(actions.setAuthRedirectPath(path))
+		onInitPurchase: () => dispatch(actions.purchaseInit()),
+		onSetAuthRedirectPath: path => dispatch(actions.setAuthRedirectPath(path)),
 	};
 };
 
