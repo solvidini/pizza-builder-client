@@ -1,7 +1,8 @@
 export {
     addIngredient,
     removeIngredient,
-    resetIngredients
+    resetIngredients,
+    setIngredients
 } from './pizzaBuilder';
 
 export {

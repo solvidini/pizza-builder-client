@@ -19,3 +19,10 @@ export const resetIngredients = () => {
         type: actionTypes.RESET_INGREDIENTS
     }
 }
+
+export const setIngredients = (ing) => {
+    return {
+        type: actionTypes.SET_INGREDIENTS,
+        ingredients: ing
+    }
+}

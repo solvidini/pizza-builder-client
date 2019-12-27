@@ -21,6 +21,10 @@ const Checkout = React.lazy(() => {
 	return import('./containers/Checkout/Checkout');
 });
 
+const Examples = React.lazy(() => {
+	return import('./containers/Examples/Examples');
+});
+
 function App(props) {
 	const { onTryAutoSignup } = props;
 	useEffect(() => onTryAutoSignup(), [onTryAutoSignup]);
@@ -28,6 +32,7 @@ function App(props) {
 	let routes = (
 		<Switch>
 			<Route path="/auth" render={props => <Auth {...props} />} />
+			<Route path="/examples" render={props => <Examples {...props} />} />
 			<Route path="/" exact component={PizzaBuilder} />
 			<Redirect to="/" />
 		</Switch>
@@ -39,7 +44,8 @@ function App(props) {
 				<Route path="/checkout" render={props => <Checkout {...props} />} />
 				<Route path="/orders" render={props => <Orders {...props} />} />
 				<Route path="/logout" component={Logout} />
-				<Route path="/auth" render={props => <Auth {...props} />} />
+				{/* <Route path="/auth" render={props => <Auth {...props} />} /> */}
+				<Route path="/examples" render={props => <Examples {...props} />} />
 				<Route path="/" exact component={PizzaBuilder} />
 				<Redirect to="/" />
 			</Switch>

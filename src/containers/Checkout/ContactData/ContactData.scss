@@ -19,3 +19,18 @@
         width: 80%;
     }
 }
+
+.purchased {
+    font-size: $default-font-size;
+    padding: 1rem;
+    &__title {
+        font-size: 2rem;
+        letter-spacing: .3rem;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    &__paragraph {
+        margin: 1rem 0;
+    }
+}

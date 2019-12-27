@@ -1,6 +1,8 @@
 {
 	"short_name": "Pizza Builder",
 	"name": "Pizza Builder - Create and order your own pizza!",
+	"default_locale": "en",
+	"description": "Application made in React and Redux to create and order your own pizza!",
 	"icons": [
 		{
 			"src": "favicon.ico",
@@ -10,6 +12,6 @@
 	],
 	"start_url": ".",
 	"display": "standalone",
-	"theme_color": "#000000",
-	"background_color": "#ffffff"
+	"theme_color": "#141414",
+	"background_color": "#f8f4f5"
 }

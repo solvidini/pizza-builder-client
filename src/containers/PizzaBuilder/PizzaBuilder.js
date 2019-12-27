@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment, useCallback } from 'react';
+import React, { useState, Fragment } from 'react';
 import { connect } from 'react-redux';
 
 import Pizza from '../../components/Pizza/Pizza';

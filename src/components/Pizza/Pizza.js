@@ -23,9 +23,15 @@ const Pizza = props => {
 						<PizzaIngredient
 							key={igKey + i + x + 'v'}
 							type={igKey}
-							ingredientStyle={{
-								transform: `scale(.25) translate(-${positionX}%, -${positionY}%) rotate(${rotate}deg)`,
-							}}
+							ingredientStyle={
+								!props.smallIng
+									? {
+											transform: `scale(.25) translate(-${positionX}%, -${positionY}%) rotate(${rotate}deg)`,
+									  }
+									: {
+											transform: `scale(.2) translate(-${positionX}%, -${positionY}%) rotate(${rotate}deg)`,
+									  }
+							}
 						/>
 					);
 				}
@@ -37,9 +43,15 @@ const Pizza = props => {
 						<PizzaIngredient
 							key={igKey + i + x + 'h'}
 							type={igKey}
-							ingredientStyle={{
-								transform: `scale(.25) translate(-${positionX}%, -${positionY}%) rotate(${rotate}deg)`,
-							}}
+							ingredientStyle={
+								!props.smallIng
+									? {
+											transform: `scale(.25) translate(-${positionX}%, -${positionY}%) rotate(${rotate}deg)`,
+									  }
+									: {
+											transform: `scale(.2) translate(-${positionX}%, -${positionY}%) rotate(${rotate}deg)`,
+									  }
+							}
 						/>
 					);
 				}
@@ -53,7 +65,11 @@ const Pizza = props => {
 	if (transformedIngredients.length === 0) {
 		transformedIngredients = <p className="no-ingredients">Please start adding ingredients!</p>;
 	}
-	return <div className="pizza">{transformedIngredients}</div>;
+	return (
+		<div className="pizza" style={props.dimensions}>
+			{transformedIngredients}
+		</div>
+	);
 };
 
 export default React.memo(Pizza);

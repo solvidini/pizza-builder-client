@@ -81,7 +81,6 @@ export const fetchOrders = token => {
 				'Content-Type': 'application/json',
 			},
 		};
-		console.log(config);
 		axios
 			.get('/orders', config)
 			.then(res => {

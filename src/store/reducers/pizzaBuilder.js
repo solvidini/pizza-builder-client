@@ -14,22 +14,22 @@ const initialState = {
 		pineapple: 0,
 		oregano: 0,
 	},
-	totalPrice: 6,
+	totalPrice: 5,
 	error: false,
 	building: false,
 };
 
 const INGREDIENT_PRICES = {
-	cheese: 0.5,
+	cheese: 1,
 	pepperoni: 2.5,
-	cucumber: 1.5,
-	tomato: 0.75,
-	jalapeno: 0.75,
-	mushroom: 0.5,
-	olive: 0.75,
+	cucumber: 1.25,
+	tomato: 1.5,
+	jalapeno: 1,
+	mushroom: 1.25,
+	olive: 1,
 	paprika: 1.5,
 	pineapple: 1,
-	oregano: 0.25,
+	oregano: 0.5,
 };
 
 const addIngredient = (state, action) => {
@@ -67,11 +67,24 @@ const resetIngredients = (state, action) => {
 	}
 }
 
+const setIngredients = (state, action) => {
+	let currentPrice = initialState.totalPrice;
+	Object.keys(action.ingredients).map(ing => {
+		currentPrice = currentPrice + INGREDIENT_PRICES[ing]*action.ingredients[ing];
+	});
+	const updatedState = {
+		ingredients: action.ingredients,
+		totalPrice: currentPrice
+	}
+	return updateObject(state, updatedState);
+}
+
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.ADD_INGREDIENT: return addIngredient(state, action);
         case actionTypes.REMOVE_INGREDIENT: return removeIngredient(state, action);
-        case actionTypes.RESET_INGREDIENTS: return resetIngredients(state, action);
+		case actionTypes.RESET_INGREDIENTS: return resetIngredients(state, action);
+		case actionTypes.SET_INGREDIENTS: return setIngredients(state, action);
         default: return state;
     }
 }
