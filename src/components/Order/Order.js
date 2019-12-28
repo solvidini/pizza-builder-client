@@ -25,13 +25,13 @@ const Order = props => {
 	const fullDate =
 	date.getDate() +
 	'-' +
-	date.getUTCMonth() +
+	date.getMonth() +
 	'-' +
-	date.getUTCFullYear() +
+	date.getFullYear() +
 	' ' +
-		date.getUTCHours() +
+		date.getHours() +
 		':' +
-		date.getUTCMinutes();
+		(date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes());
 	return (
 		<div className={classes.Order}>
 			<p className={classes.Order__paragraph}>

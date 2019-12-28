@@ -187,6 +187,7 @@ const ContactData = props => {
 				show={ordered}
 				modalClosed={() => {
 					setOrdered(false);
+					props.history.push('/');
 				}}
 			>
 				<div className="purchased">
